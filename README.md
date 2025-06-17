@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This repository contains a suite of Python command-line utility scripts for analyzing complex genetic events, such as splice junctions and deletions, from 10x Genomics single-cell RNA sequencing (scRNA-seq) BAM files. While existing tools, such as Vartrix, exist, they are not well-maintained and are not well-equipped to handle large structural variants, such as deletions spanning multiple exons. Vartrix also required a predefined VCF file, which is not always readily available, especially if the exact coordinates of genetic variants are unclear. 
+This repository contains a suite of Python command-line utility scripts for analyzing complex genetic events, such as splice junctions and deletions, from 10x Genomics single-cell RNA sequencing (scRNA-seq) BAM files. While existing tools, such as Vartrix exist, they are not well-maintained and lack the capability to handle large structural variants, including deletions spanning multiple exons. Vartrix also required a predefined VCF file, which is not always readily available. I developed these scripts to handle *de novo* discovery as well as confirmation of large-scale genomic alterations. 
 
 These tools are designed to move from unbiased discovery to quantitative analysis, allowing you to:
 
@@ -13,6 +13,8 @@ These tools are designed to move from unbiased discovery to quantitative analysi
 3. Determine Zygosity by classifying cells as wild-type, heterozygous, or homozygous for a given variant.
 4. Check for the presence of a known SNP at a specific site.
 5. Filter large BAM files to create smaller, focused BAMs containing only cells of interest for easier visualization and downstream analysis.
+
+Scripts are still in the early development phase, so use at your discretion. The SNP-confirming script has not been tested extensively. Other scripts have only been tested against 3' GEX from 10X. 
    
 ## Table of Contents
 * [Prerequisites](#prerequisites)
@@ -141,12 +143,13 @@ python filter_bam_by_barcodes.py --input-bam <INPUT_BAM> --barcodes <BARCODE_FIL
 ```
 
 Arguments:
-```bash
-Argument	Flag	Description	Required
---input-bam	-i	Path to the large, original, indexed BAM file.	Yes
---barcodes	-b	Path to a text file containing one cell barcode per line (e.g., AAACCCAAGCATCAGG-1).	Yes
---output-bam	-o	Path for the new, smaller, filtered BAM file.	Yes
-```
+
+|Argument	|Flag	|Description	|Required|
+|-----------|-----|--------------|--------|
+--input-bam	|-i	|Path to the large, original, indexed BAM file.|	Yes
+--barcodes	|-b	|Path to a text file containing one cell barcode per line (e.g., AAACCCAAGCATCAGG-1).|	Yes
+--output-bam|	-o	|Path for the new, smaller, filtered BAM file.	|Yes
+
 
 Example:
 
@@ -207,9 +210,9 @@ G	39	46.43%
 ## Example Workflow
 A typical analysis might follow these steps:
 
-1. **Discover**: Use analyze_junctions.py discover on your gene of interest to get a list of all novel deletions and their coordinates.
-2. **Quantify**: Use analyze_junctions.py quantify with the coordinates you just discovered (and the wild-type junction) to get a full breakdown of cell populations (wild-type, homozygous, heterozygous).
-3. **Filter & Visualize**: Use filter_bam_by_barcodes.py to create a small BAM file containing only the heterozygous cells. Index this new BAM file and load it into IGV for focused visual inspection.
+1. **Discover**: Use ```bash analyze_junctions.py discover``` on your gene of interest to get a list of all novel deletions and their coordinates.
+2. **Quantify**: Use ```bash analyze_junctions.py quantify``` with the coordinates you just discovered (and the wild-type junction) to get a full breakdown of cell populations (wild-type, homozygous, heterozygous).
+3. **Filter & Visualize**: Use ```bash filter_bam_by_barcodes.py``` to create a small BAM file containing only the heterozygous cells. Index this new BAM file and load it into IGV for focused visual inspection.
 4. **Check a SNP**: If you suspect a SNP is associated with one of your cell populations, use check_snp.py on your filtered BAM to see if the allele frequencies differ.
 
 ## License
