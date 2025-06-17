@@ -14,7 +14,7 @@ These tools are designed to move from unbiased discovery to quantitative analysi
 4. Check for the presence of a known SNP at a specific site.
 5. Filter large BAM files to create smaller, focused BAMs containing only cells of interest for easier visualization and downstream analysis.
 
-Scripts are still in the early development phase, so use at your discretion. The SNP-confirming script has not been tested extensively. Other scripts have only been tested against 3' GEX from 10X. 
+Scripts are still in the early development phase, so use at your discretion. The SNP-confirming script has not been tested extensively. Other scripts have only been tested against 3' GEX data from 10X. 
    
 ## Table of Contents
 * [Prerequisites](#prerequisites)
