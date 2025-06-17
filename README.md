@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This repository contains a suite of Python command-line utility scripts for analyzing complex genetic events, such as splice junctions and deletions, from 10x Genomics single-cell RNA sequencing (scRNA-seq) BAM files. While existing tools, such as Vartrix exist, they are not well-maintained and lack the capability to handle large structural variants, including deletions spanning multiple exons. Vartrix also required a predefined VCF file, which is not always readily available. I developed these scripts to handle *de novo* discovery as well as confirmation of large-scale genomic alterations. 
+This repository contains a suite of Python command-line utility scripts for analyzing complex genetic events, such as splice junctions and deletions, from 10x Genomics single-cell RNA sequencing (scRNA-seq) BAM files. While an existing method (Vatrix) designated for this task exists, it is not actively maintained and lacks the capability to handle large structural variants, including deletions spanning multiple exons. Vartrix also requires a predefined VCF file, which is not always readily available. I developed these scripts to handle *de novo* discovery as well as confirmation of large-scale genomic alterations. 
 
 These tools are designed to move from unbiased discovery to quantitative analysis, allowing you to:
 
