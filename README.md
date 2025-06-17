@@ -14,16 +14,14 @@ These tools are designed to move from unbiased discovery to quantitative analysi
 4. Check for the presence of a known SNP at a specific site.
 5. Filter large BAM files to create smaller, focused BAMs containing only cells of interest for easier visualization and downstream analysis.
    
-Table of Contents
-Prerequisites
-Tools Overview
-1. analyze_junctions.py
-Usage: discover mode
-Usage: quantify mode
-2. filter_bam_by_barcodes.py
-3. check_snp.py
-Example Workflow
-License
+## Table of Contents
+* [Prerequisites](#prerequisites)
+* [Tools Overview](#tools-overview)
+  * [1. `analyze_junctions.py` - The Main Analysis Tool](#1-analyze_junctionspy---the-main-analysis-tool)
+  * [2. `filter_bam_by_barcodes.py` - BAM Filtering Utility](#2-filter_bam_by_barcodespy---bam-filtering-utility)
+  * [3. `check_snp.py` - SNP Pileup Checker](#3-check_snppy---snp-pileup-checker)
+* [Example Workflow](#example-workflow)
+* [License](#license)
 
 ## Prerequisites
 Before using these scripts, you need to have Python 3 and the following libraries installed.
