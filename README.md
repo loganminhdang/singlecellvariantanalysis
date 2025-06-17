@@ -51,7 +51,7 @@ This is a powerful, multi-purpose tool for junction discovery and quantification
 
 **Usage: discover mode**
 
-This mode performs an unbiased scan of a genomic region to find all splice junctions that exceed a minimum size. It is perfect for the initial exploration of a gene to find deletions or novel splicing events.
+This mode performs an unbiased scan of a genomic region to find all splice junctions that exceed a minimum size. It is suited for the initial exploration of a gene to find deletions or novel splicing events.
 
 Command:
 
@@ -105,7 +105,7 @@ Arguments:
 
 Example:
 
-This example quantifies three different alleles (Wild-Type, a deletion of Exon 4, and a deletion of Exons 2+3).
+This example quantifies three different alleles (Wild-Type, a deletion of Exon 4, and a deletion of Exons 2+3 for the Srsf3 locus).
 
 ```bash
 
@@ -133,7 +133,7 @@ Count		Allele State(s) Detected in Cell
 ----------------------------------------------------------
 ```
 ### 2. filter_bam_by_barcodes.py **- BAM Filtering Utility**
-This is a dedicated utility to create a new, smaller BAM file containing only the reads from a specified list of cells. This is very useful for focused visualization in IGV.
+This is a dedicated utility to create a BAM file containing only the reads from a specified list of cells. This is useful for focused visualization in IGV.
 
 Usage:
 
@@ -169,7 +169,7 @@ samtools index heterozygous_only.bam
 
 ### 3. check_snp.py **- SNP Pileup Checker**
 
-This is a simple tool to perform a quick analysis at a single genomic coordinate to check the frequencies of different bases. It is useful for verifying a known SNP but is not a tool for discovering new variants.
+This is a simple tool to perform a quick analysis at a single genomic coordinate to check the frequencies of different bases. It is useful for verifying a known SNP but is not a tool for discovering new variants. It does not required a vcf file, unlike Vartrix. 
 
 Usage:
 
