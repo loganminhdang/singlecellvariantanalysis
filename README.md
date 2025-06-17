@@ -45,7 +45,7 @@ brew install samtools
 ```
 
 ## Tools Overview
-1. analyze_junctions.py - **The Main Analysis Tool**
+### 1. analyze_junctions.py - **The Main Analysis Tool**
 
 This is a powerful, multi-purpose tool for junction discovery and quantification. It operates in two modes: discover and quantify.
 
@@ -132,7 +132,7 @@ Count		Allele State(s) Detected in Cell
 20		    Deletion_E2_3
 ----------------------------------------------------------
 ```
-2. filter_bam_by_barcodes.py **- BAM Filtering Utility**
+### 2. filter_bam_by_barcodes.py **- BAM Filtering Utility**
 This is a dedicated utility to create a new, smaller BAM file containing only the reads from a specified list of cells. This is very useful for focused visualization in IGV.
 
 Usage:
@@ -167,7 +167,7 @@ python filter_bam_by_barcodes.py \
 samtools index heterozygous_only.bam
 ```
 
-3. check_snp.py **- SNP Pileup Checker**
+### 3. check_snp.py **- SNP Pileup Checker**
 
 This is a simple tool to perform a quick analysis at a single genomic coordinate to check the frequencies of different bases. It is useful for verifying a known SNP but is not a tool for discovering new variants.
 
