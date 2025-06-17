@@ -4,17 +4,17 @@
 
 ## Introduction
 
-This repository contains a suite of Python command-line utility scripts for analyzing complex genetic events, such as splice junctions and deletions, from 10x Genomics single-cell RNA sequencing (scRNA-seq) BAM files. While an existing method (Vatrix) designated for this task exists, it is not actively maintained and lacks the capability to handle large structural variants, including deletions spanning multiple exons. Vartrix also requires a predefined VCF file, which is not always readily available. I developed these scripts to handle *de novo* discovery as well as confirmation of large-scale genomic alterations. 
+This repository contains a suite of Python command-line utility scripts for analyzing complex genetic events, such as splice junctions and deletions, from 10x Genomics single-cell RNA sequencing (scRNA-seq) BAM files. While an existing method (Vartrix) is designated for this task, it is not actively maintained and lacks the capability to handle large structural variants, including deletions spanning multiple exons. Vartrix also requires a predefined VCF file, which is not always readily available. I developed these scripts to handle *de novo* discovery as well as confirmation of large-scale genomic alterations. 
 
 These tools are designed to move from unbiased discovery to quantitative analysis, allowing you to:
 
 1. Discover all novel and annotated splice junctions within a gene region.
 2. Quantify the number of cells that contain specific junctions (e.g., from a deletion event).
-3. Determine Zygosity by classifying cells as wild-type, heterozygous, or homozygous for a given variant.
+3. Determine Zygosity by classifying cells as wild-type, heterozygous, or homozygous for a given variant/deletion.
 4. Check for the presence of a known SNP at a specific site.
-5. Filter large BAM files to create smaller, focused BAMs containing only cells of interest for easier visualization and downstream analysis.
+5. Filter large BAM files to create smaller, focused BAMs containing only cells of interest (e.g., cells homozygous for a genomic alteration) for easier visualization and downstream analysis.
 
-Scripts are still in the early development phase, so use at your discretion. The SNP-confirming script has not been tested extensively. Other scripts have only been tested against 3' GEX data from 10X. 
+Scripts are still in the early development phase, so use at your own discretion. The SNP-confirming script has not been tested extensively. Other scripts have only been tested against 3' GEX data from 10X. 
    
 ## Table of Contents
 * [Prerequisites](#prerequisites)
