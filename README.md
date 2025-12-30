@@ -241,8 +241,8 @@ A typical analysis might follow these steps:
 1. **Discover**: Use ```bash analyze_junctions.py discover``` on your gene of interest to get a list of all novel deletions and their coordinates.
 2. **Quantify**: Use ```bash analyze_junctions.py quantify``` with the coordinates you just discovered (and the wild-type junction) to get a full breakdown of cell populations (wild-type, homozygous, heterozygous).
 3. **Annotate**: Use ```bash interpret_junctions.py``` to contextualise genetic variants with cell populations and get a full breakdown of variants found in each cell state. 
-4. **Filter & Visualize**: Use ```bash filter_bam_by_barcodes.py``` to create a small BAM file containing only the heterozygous cells. Index this new BAM file and load it into IGV for focused visual inspection.
-5. **Check a SNP**: If you suspect a SNP is associated with one of your cell populations, use check_snp.py on your filtered BAM to see if the allele frequencies differ.
+4. **Filter & Visualize**: Use ```bash filterbambybarcodes.py``` to create a small BAM file containing only the heterozygous cells. Index this new BAM file and load it into IGV for focused visual inspection.
+5. **Check a SNP**: If you suspect a SNP is associated with one of your cell populations, use checksnp.py on your filtered BAM to see if the allele frequencies differ.
 
 ## License
 This project is licensed under the MIT License.
