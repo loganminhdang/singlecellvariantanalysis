@@ -41,6 +41,9 @@ pip install pysam
 # On Linux (using apt)
 sudo apt-get update && sudo apt-get install samtools
 
+# On Linux (using conda)
+conda install bioconda::samtools
+
 # On macOS (using Homebrew)
 brew install samtools
 ```
