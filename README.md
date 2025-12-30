@@ -132,14 +132,42 @@ Count		Allele State(s) Detected in Cell
 20		    Deletion_E2_3
 ----------------------------------------------------------
 ```
-### 2. filter_bam_by_barcodes.py **- BAM Filtering Utility**
+
+### 2. interpret_junction.py **- Cell-Type Aware Zygosity Analysis**
+
+This script integrates sequencing evidence from your BAM file with biological metadata. It identifies specific splice junctions or deletions and provides a detailed breakdown of the genetic states (e.g., Wild-Type, Heterozygous, Homozygous Deleted) within each specific cell type or cluster.
+
+
+
+#### **Usage**
+
+```bash
+python interpret_junction.py \
+  --bam <INPUT_BAM> \
+  --region <CHROM:START-END> \
+  --barcodes <ANNOTATION_CSV> \
+  --junctions <NAME:START-END> [NAME:START-END ...] \
+  --output-file <REPORT_TXT>
+```
+
+Arguments:
+
+|Argument	|Flag	|Description	|Required|
+|-----------|-----|--------------|--------|
+--bam      	|	|Path to the large, original, indexed BAM file.|	Yes
+--region   	|	|Genomic region to analyze (e.g., '17:29032000-29042500').|	Yes
+--barcodes	|	|Path to a two-column CSV file with header: barcode,cell_type.|	Yes
+--junctions	|	|One or more junctions to quantify. Format: NAME:START-END.|	Yes
+--output-file|	-o	|(Optional) Path to save the final text report file.	|No
+
+### 3. filterbambybarcodes.py **- BAM Filtering Utility**
 This is a dedicated utility to create a BAM file containing only the reads from a specified list of cells. This is useful for focused visualization in IGV.
 
 Usage:
 
 ```bash
 
-python filter_bam_by_barcodes.py --input-bam <INPUT_BAM> --barcodes <BARCODE_FILE> --output-bam <OUTPUT_BAM>
+python filter_bam_by_barcodes.py --input-bam <INPUT_BAM> --barcodes <BARCODE_FILE> --output-bam <OUTPUT_BAM> 
 ```
 
 Arguments:
@@ -158,7 +186,7 @@ Example:
 # First, you might generate a list of barcodes from the analysis tool
 # Or use your own list, e.g., 'heterozygous_cells.txt'
 
-python filter_bam_by_barcodes.py \
+python filterbambybarcodes.py \
   -i /data/my_experiment.bam \
   -b heterozygous_cells.txt \
   -o heterozygous_only.bam
@@ -167,7 +195,7 @@ python filter_bam_by_barcodes.py \
 samtools index heterozygous_only.bam
 ```
 
-### 3. check_snp.py **- SNP Pileup Checker**
+### 4. checksnp.py **- SNP Pileup Checker**
 
 This is a simple tool to perform a quick analysis at a single genomic coordinate to check the frequencies of different bases. It is useful for verifying a known SNP but is not a tool for discovering new variants. It does not required a vcf file, unlike Vartrix. 
 
@@ -175,7 +203,7 @@ Usage:
 
 ```bash
 
-python check_snp.py --bam <BAM_FILE> --position <POSITION>
+python checksnp.py --bam <BAM_FILE> --position <POSITION>
 ```
 Arguments:
 
@@ -189,7 +217,7 @@ Example:
 
 ```bash
 
-python check_snp.py \
+python checksnp.py \
   --bam /data/my_experiment.bam \
   --position "17:29035150"
 ```
@@ -212,8 +240,9 @@ A typical analysis might follow these steps:
 
 1. **Discover**: Use ```bash analyze_junctions.py discover``` on your gene of interest to get a list of all novel deletions and their coordinates.
 2. **Quantify**: Use ```bash analyze_junctions.py quantify``` with the coordinates you just discovered (and the wild-type junction) to get a full breakdown of cell populations (wild-type, homozygous, heterozygous).
-3. **Filter & Visualize**: Use ```bash filter_bam_by_barcodes.py``` to create a small BAM file containing only the heterozygous cells. Index this new BAM file and load it into IGV for focused visual inspection.
-4. **Check a SNP**: If you suspect a SNP is associated with one of your cell populations, use check_snp.py on your filtered BAM to see if the allele frequencies differ.
+3. **Annotate**: Use ```bash interpret_junctions.py``` to contextualise genetic variants with cell populations and get a full breakdown of variants found in each cell state. 
+4. **Filter & Visualize**: Use ```bash filter_bam_by_barcodes.py``` to create a small BAM file containing only the heterozygous cells. Index this new BAM file and load it into IGV for focused visual inspection.
+5. **Check a SNP**: If you suspect a SNP is associated with one of your cell populations, use check_snp.py on your filtered BAM to see if the allele frequencies differ.
 
 ## License
 This project is licensed under the MIT License.
