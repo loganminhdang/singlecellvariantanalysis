@@ -47,7 +47,7 @@ brew install samtools
 ## Tools Overview
 ### 1. analyze_junctions.py - **The Main Analysis Tool**
 
-This is a powerful, multi-purpose tool for junction discovery and quantification. It operates in two modes: discover and quantify.
+This is a multi-purpose tool for junction discovery and quantification. It operates in two modes: discover and quantify.
 
 **Usage: discover mode**
 
