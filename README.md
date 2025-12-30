@@ -20,8 +20,9 @@ Scripts are still in the early development phase, so use at your own discretion.
 * [Prerequisites](#prerequisites)
 * [Tools Overview](#tools-overview)
   * [1. `analyze_junctions.py` - The Main Analysis Tool](#1-analyze_junctionspy---the-main-analysis-tool)
-  * [2. `filter_bam_by_barcodes.py` - BAM Filtering Utility](#2-filter_bam_by_barcodespy---bam-filtering-utility)
-  * [3. `check_snp.py` - SNP Pileup Checker](#3-check_snppy---snp-pileup-checker)
+  * [2. `interpret_junctions.py` - Cell type contextualisation](#2-interpret_junctionspy---cell-type-aware-zygosity-analysis)
+  * [3. `filterbambybarcodes.py` - BAM Filtering Utility](#3-filterbambybarcodespy---bam-filtering-utility)
+  * [4. `checksnp.py` - SNP Pileup Checker](#4-checksnppy---snp-pileup-checker)
 * [Example Workflow](#example-workflow)
 * [License](#license)
 
