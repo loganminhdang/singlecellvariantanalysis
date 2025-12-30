@@ -133,7 +133,7 @@ Count		Allele State(s) Detected in Cell
 ----------------------------------------------------------
 ```
 
-### 2. interpret_junction.py **- Cell-Type Aware Zygosity Analysis**
+### 2. interpret_junctions.py **- Cell-Type Aware Zygosity Analysis**
 
 This script integrates sequencing evidence from your BAM file with biological metadata. It identifies specific splice junctions or deletions and provides a detailed breakdown of the genetic states (e.g., Wild-Type, Heterozygous, Homozygous Deleted) within each specific cell type or cluster.
 
@@ -142,7 +142,7 @@ This script integrates sequencing evidence from your BAM file with biological me
 #### **Usage**
 
 ```bash
-python interpret_junction.py \
+python interpret_junctions.py \
   --bam <INPUT_BAM> \
   --region <CHROM:START-END> \
   --barcodes <ANNOTATION_CSV> \
@@ -167,7 +167,7 @@ Usage:
 
 ```bash
 
-python filter_bam_by_barcodes.py --input-bam <INPUT_BAM> --barcodes <BARCODE_FILE> --output-bam <OUTPUT_BAM> 
+python filterbambybarcodes.py --input-bam <INPUT_BAM> --barcodes <BARCODE_FILE> --output-bam <OUTPUT_BAM> 
 ```
 
 Arguments:
